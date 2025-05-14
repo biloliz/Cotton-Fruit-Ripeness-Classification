@@ -1,4 +1,4 @@
-# 🌿 Smart Cotton Harvesting: AI-Powered Ripeness Detection 🚜
+# 🌿 Smart Cotton Fruit Harvesting: AI-Powered Ripeness Detection 🚜
 ## 🌱 Project Overview
 This MATLAB-based Cotton Fruit Ripeness Classification system leverages image processing to automate and enhance harvesting decisions. By analyzing color segmentation, histogram-based classification, and texture features, this tool accurately determines ripeness stages and provides recommendations on harvest readiness.
 
