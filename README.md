@@ -1,29 +1,21 @@
-# 🌿 Smart Cotton Fruit Harvesting: AI-Powered Ripeness Detection
+# 🌾 Smart Rice Maturity Detection: Image-Based Harvest Readiness System
 ## 🌱 Project Overview
-This MATLAB-based Cotton Fruit Ripeness Classification system leverages image processing to automate and enhance harvesting decisions. By analyzing color segmentation, histogram-based classification, and texture features, this tool accurately determines ripeness stages and provides recommendations on harvest readiness.
+This MATLAB-powered Rice Grain and Crop Maturity Detection system uses basic image processing techniques to help farmers and researchers determine optimal harvest time. By analyzing color segmentation and crop texture, it identifies mature regions in the image and provides a clear recommendation on harvest readiness.
 
 ## 🔍 Key Features
-### ✅ Automated Image-Based Ripeness Classification
+✅ Automated Image-Based Maturity Detection
+Detects mature crop areas based on HSV color segmentation (yellow-brown hues)
+Estimates the percentage of mature grains in the image
 
-Identifies three ripeness levels: 🟢 Unripe, 🟡 Semi-Ripe, 🔴 Fully Ripe
+## 🚜 Harvesting Recommendation
+Automatically assesses if the rice field or grains are ready for harvest ✅
+Displays “Ready” or “Not Ready” based on maturity percentage threshold
 
-Uses HSV color segmentation for precise fruit analysis
-
-### 🌾 Harvesting Recommendation
-
-Determines if cotton fruit is ready for harvest 🚜 or needs more time ⏳
-
-### 🎭 Texture & Shape Analysis
-
-Applies edge detection to refine classification accuracy
-
-### 🚀 User-Friendly & Scalable
-
-Can be integrated into agriculture automation systems or enhanced with machine learning 🤖
+## 🌾 Lightweight & Adaptable
+Designed to work with drone-captured or close-up field images
+Simple and quick to deploy in research or prototype-level automation systems
 
 ## 🔮 Future Enhancements
-🤖 Machine Learning Integration for improved classification accuracy 
-
-📷 Real-Time Camera Support to process live cotton fruit images 
-
-📱 Mobile App Extension for farmers to capture and analyze fruit ripeness remotely
+🤖 Integration of Machine Learning (SVM/CNN) for more accurate maturity classification
+📷 Real-Time Camera Support for live monitoring of crop maturity
+📱 Mobile App Interface to capture, upload, and get results in the field
