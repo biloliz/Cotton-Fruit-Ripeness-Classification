@@ -1,27 +1,29 @@
-# 🌾 Smart Rice Maturity Detection: Image-Based Harvest Readiness System
+# 🌿 Smart Cotton Fruit Harvesting: AI-Powered Ripeness Detection
 ## 🌱 Project Overview
-This MATLAB-powered Rice Grain and Crop Maturity Detection system uses basic image processing techniques to help farmers and researchers determine optimal harvest time. By analyzing color segmentation and crop texture, it identifies mature regions in the image and provides a clear recommendation on harvest readiness.
+This MATLAB-based Cotton Fruit Ripeness Classification system leverages image processing to automate and enhance harvesting decisions. By analyzing color segmentation, histogram-based classification, and texture features, this tool accurately determines ripeness stages and provides recommendations on harvest readiness.
 
 ## 🔍 Key Features
-✅ Automated Image-Based Maturity Detection
+### ✅ Automated Image-Based Ripeness Classification
 
-Detects mature crop areas based on HSV color segmentation (yellow-brown hues)
+Identifies three ripeness levels: 🟢 Unripe, 🟡 Semi-Ripe, 🔴 Fully Ripe
 
-Estimates the percentage of mature grains in the image
+Uses HSV color segmentation for precise fruit analysis
 
-## 🚜 Harvesting Recommendation
-Automatically assesses if the rice field or grains are ready for harvest ✅
+### 🌾 Harvesting Recommendation
 
-Displays “Ready” or “Not Ready” based on maturity percentage threshold
+Determines if cotton fruit is ready for harvest 🚜 or needs more time ⏳
 
-## 🌾 Lightweight & Adaptable
-Designed to work with drone-captured or close-up field images
+### 🎭 Texture & Shape Analysis
 
-Simple and quick to deploy in research or prototype-level automation systems
+Applies edge detection to refine classification accuracy
+
+### 🚀 User-Friendly & Scalable
+
+Can be integrated into agriculture automation systems or enhanced with machine learning 🤖
 
 ## 🔮 Future Enhancements
-🤖 Integration of Machine Learning (SVM/CNN) for more accurate maturity classification
+🤖 Machine Learning Integration for improved classification accuracy 
 
-📷 Real-Time Camera Support for live monitoring of crop maturity
+📷 Real-Time Camera Support to process live cotton fruit images 
 
-📱 Mobile App Interface to capture, upload, and get results in the field
+📱 Mobile App Extension for farmers to capture and analyze fruit ripeness remotely
