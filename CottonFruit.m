@@ -13,41 +13,45 @@ hsv_img = rgb2hsv(img);
 h_channel = hsv_img(:,:,1);  % Extract Hue component
 
 % Define ripeness levels based on hue ranges
-ripe_mask = (h_channel > 0.08 & h_channel < 0.18);  % Yellow-orange hues (pangdetermine kung fully ripe)
-semi_ripe_mask = (h_channel > 0.18 & h_channel < 0.25); % Light green-yellow hues (pangdetermine kung semi-ripe)
-unripe_mask = (h_channel > 0.25 & h_channel < 0.40); % Green hues (pangdetermine kung unripe)
+ripe_mask = (H >= 0.08 & H < 0.15);
+semi_ripe_mask = (H >= 0.15 & H < 0.22);
+unripe_mask = (H >= 0.22 & H <= 0.40);
 
-% Apply masks to extract segmented cotton fruit regions
+% Step 4: Clean masks using morphological operations
+se = strel('disk', 3);
+ripe_mask = imopen(ripe_mask, se);
+semi_ripe_mask = imopen(semi_ripe_mask, se);
+unripe_mask = imopen(unripe_mask, se);
+
+% Step 5: Apply masks to extract segmented fruit regions
 ripe_img = img .* uint8(repmat(ripe_mask, [1, 1, 3]));
 semi_ripe_img = img .* uint8(repmat(semi_ripe_mask, [1, 1, 3]));
 unripe_img = img .* uint8(repmat(unripe_mask, [1, 1, 3]));
 
-% Display segmented results
+% Step 6: Display results
 figure; imshow(ripe_img); title('Fully Ripe Cotton Fruit');
 figure; imshow(semi_ripe_img); title('Semi-Ripe Cotton Fruit');
 figure; imshow(unripe_img); title('Unripe Cotton Fruit');
 
-% Histogram analysis for classification
-r_channel = img(:,:,1);
-g_channel = img(:,:,2);
-b_channel = img(:,:,3);
+% Step 7: Calculate average RGB in ripe region
+R = img(:,:,1); G = img(:,:,2); B = img(:,:,3);
 
-mean_r = mean(r_channel(ripe_mask));
-mean_g = mean(g_channel(ripe_mask));
-mean_b = mean(b_channel(ripe_mask));
+mean_r = mean2(R(ripe_mask));
+mean_g = mean2(G(ripe_mask));
+mean_b = mean2(B(ripe_mask));
 
-% Determine classification and harvesting recommendation
+% Step 8: Ripeness Classification Based on Dominant Color
 if mean_r > mean_g && mean_r > mean_b
     ripeness = 'Fully Ripe';
-    harvesting_status = 'Ready for Harvesting';
+    harvesting_status = '✅ Ready for Harvesting';
 elseif mean_g > mean_r && mean_g > mean_b
     ripeness = 'Unripe';
-    harvesting_status = 'Not Ready for Harvesting';
+    harvesting_status = '❌ Not Ready for Harvesting';
 else
     ripeness = 'Semi-Ripe';
-    harvesting_status = 'May Need More Time Before Harvest';
+    harvesting_status = '⏳ May Need More Time Before Harvest';
 end
 
-% Display classification and harvesting status
-disp(['Cotton Fruit Ripeness Classification: ', ripeness]);
-disp(['Harvesting Status: ', harvesting_status]);
+% Step 9: Display Results
+fprintf('\nCotton Fruit Ripeness Classification: %s\n', ripeness);
+fprintf('Harvesting Status: %s\n', harvesting_status);
