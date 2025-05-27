@@ -4,7 +4,7 @@
 
 clc; clear; close all;
 
-% Load cotton fruit image (palitan mo nalan to ng file name n pic)
+% Load cotton fruit image (palitan mo nalang to ng file name ng pic)
 img = imread('cotton_fruit.jpg');
 figure; imshow(img); title('Original Cotton Fruit Image');
 
@@ -36,6 +36,10 @@ mean_r = mean(r_channel(ripe_mask));
 mean_g = mean(g_channel(ripe_mask));
 mean_b = mean(b_channel(ripe_mask));
 
+% Shape & Texture Analysis (ina-analyze nya ung edge ng prutas)
+gray_img = rgb2gray(img);
+edges = edge(gray_img, 'Canny');
+
 % Determine classification and harvesting recommendation
 if mean_r > mean_g && mean_r > mean_b
     ripeness = 'Fully Ripe';
@@ -47,10 +51,6 @@ else
     ripeness = 'Semi-Ripe';
     harvesting_status = 'May Need More Time Before Harvest';
 end
-
-% Shape & Texture Analysis (ina-analyze nya ung edge ng prutas)
-gray_img = rgb2gray(img);
-edges = edge(gray_img, 'Canny');
 
 % Display classification and harvesting status
 figure; imshow(edges); title('Edge Detection for Texture Analysis');
