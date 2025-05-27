@@ -36,10 +36,6 @@ mean_r = mean(r_channel(ripe_mask));
 mean_g = mean(g_channel(ripe_mask));
 mean_b = mean(b_channel(ripe_mask));
 
-% Shape & Texture Analysis (ina-analyze nya ung edge ng prutas)
-gray_img = rgb2gray(img);
-edges = edge(gray_img, 'Canny');
-
 % Determine classification and harvesting recommendation
 if mean_r > mean_g && mean_r > mean_b
     ripeness = 'Fully Ripe';
@@ -53,6 +49,5 @@ else
 end
 
 % Display classification and harvesting status
-figure; imshow(edges); title('Edge Detection for Texture Analysis');
 disp(['Cotton Fruit Ripeness Classification: ', ripeness]);
 disp(['Harvesting Status: ', harvesting_status]);
