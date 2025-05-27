@@ -10,7 +10,7 @@ figure; imshow(img); title('Original Cotton Fruit Image');
 
 % Convert image to HSV for better color segmentation
 hsv_img = rgb2hsv(img);
-h_channel = hsv_img(:,:,1);  % Extract Hue component
+H = hsv_img(:,:,1);  % Extract Hue component
 
 % Define ripeness levels based on hue ranges
 ripe_mask = (H >= 0.08 & H < 0.15);
